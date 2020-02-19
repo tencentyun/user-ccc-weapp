@@ -1,0 +1,29 @@
+<!--components/chat/chat.wxml-->
+<!-- 重新发送 dialog -->
+<dialog show="{{showResendDialog}}" mask-closable="{{false}}" buttons="{{dialogButtons}}" bindclose="onHandleResendClose" bindbuttontap="onHandleResendEvent">
+  <view>重新发送</view>
+</dialog>
+
+<view class="page">
+  <navigationBar id="navigationBar" back="{{true}}" backStyle="simple" backEvent="{{goBack}}" background="rgb(241,243,245)" fontSize="18px" bind:back="backEvent" title="{{chatObject}}"></navigationBar>
+  <scroll-view class="chat-container {{bottomStatus !== '' ? 'chat-show-function-bar' : ''}}" scroll-y="{{true}}" scroll-top="{{scrollTop}}">
+    <!-- 消息加载 -->
+    <loading show="{{showLoading}}" type="circle" animated="{{true}}" tips="" />
+    <message wx:for="{{targetMessageList}}" wx:key="{{item.ID}}" message="{{item}}" userInfo="{{userInfo}}" staff="{{staff}}">
+      <textMessage  emojiMap="{{emojiMap}}" wx:if="{{item.type === 'TIMTextElem'}}" message="{{item}}" />
+      <imageMessage wx:elif="{{item.type === 'TIMImageElem'}}" message="{{item}}" />
+      <mediaMessage wx:elif="{{item.type === 'TIMCustomElem' && item.payload.data.type === 'mediaMessage' }}" message="{{item}}" />
+    </message>
+  </scroll-view>
+
+<!-- 功能栏 -->
+  <functionBar
+    bottomStatus="{{bottomStatus}}"
+    ivrFinish="{{ivrFinish}}"
+    emojiMap="{{emojiMap}}"
+    bind:video="onHandleVideoCall"
+    bind:audio="onHandleAudioCall"
+    bind:scroll="scrollToBottom"
+    bind:message="createMessage"
+  />
+</view>

@@ -1,0 +1,18 @@
+/* components/chat/chat.wxss */
+.page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(241, 243, 245, 1);
+}
+.chat-container {
+  flex-grow: 1;
+  flex-shrink: 1;
+  height: 1000rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

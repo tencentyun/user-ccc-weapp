@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "resend": "/miniprogram_npm/weui-miniprogram/dialog/dialog",
+    "call": "./components/video/video",
+    "chat-page": "./components/chat/chat"
+  },
+  "navigationBarBackgroundColor": "#efefef",
+  "navigationStyle": "custom"
+}

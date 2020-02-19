@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "webrtc-room": "../webrtc-room/webrtc-room"
+  }
+}

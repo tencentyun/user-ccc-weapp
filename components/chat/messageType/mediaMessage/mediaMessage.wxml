@@ -1,0 +1,7 @@
+<!--components/messageType/text/text.wxml-->
+<wxs src="../../../../utils/decodeText.wxs" module="decodeText" />
+<view class="text-container  {{message.flow === 'in' ? '' : 'text-right'}}">
+  <view class="text-wrapper {{message.flow === 'in' ? '' : 'self-text-bg'}}">
+     <view>{{message.payload.data.data.text}}</view>
+  </view>
+</view>

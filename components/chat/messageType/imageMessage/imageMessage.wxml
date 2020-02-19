@@ -1,0 +1,6 @@
+<!--components/messageType/imageMessage/imageMessage.wxml-->
+<view class="image-container">
+  <view class="image-wrapper {{message.flow === 'in' ? '' : 'self-image-bg'}}">
+    <image mode="aspectFit" src="{{message.payload.imageInfoArray[2].url}}" data-src="{{message.payload.imageInfoArray[2].url}}" bindtap="previewImage"></image>
+  </view>
+</view>

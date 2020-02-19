@@ -1,0 +1,9 @@
+<!--components/messageType/text/text.wxml-->
+<view class="text-container  {{message.flow === 'in' ? '' : 'text-right'}}">
+  <view bindlongtap="copy" class="text-wrapper {{message.flow === 'in' ? '' : 'self-text-bg'}}">
+    <block wx:for="{{messageList}}" wx:key="{{index}}">
+      <text wx:if="{{item.name === 'text'}}">{{item.text}}</text>
+      <image style="width: 48rpx; height: 48rpx;" wx:elif="{{item.name === 'img'}}" src="{{item.src}}"></image>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+<!--components/emoji/emoji.wxml-->
+<swiper>
+  <swiper-item wx:for="{{emojiList}}" wx:for-item="i" wx:for-index="swiperIndex" wx:key="{{swiperIndex}}" class="emoji-swiper-item">
+    <view wx:for="{{i}}"  wx:for-item="j" wx:for-index="emojiIndex" wx:key="{{emojiIndex}}" class="emoji-view">
+      <image id="{{j}}" src="{{emojiMap[j]}}" class="emoji-image" bindtap="setEmoji"></image>
+    </view>
+  </swiper-item>
+</swiper>

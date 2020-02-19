@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "emoji": "../chat/emoji/emoji"
+  }
+}

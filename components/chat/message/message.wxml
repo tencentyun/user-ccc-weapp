@@ -1,0 +1,45 @@
+<!--components/chatAvatar/chatAvatar.wxml-->
+<wxs module="dayjs">
+  function format(timestamp) {
+      var reFormatDate = getDate(timestamp * 1000)
+      var year = reFormatDate.getFullYear()
+      var month = reFormatDate.getMonth()
+      var day = reFormatDate.getDate()
+      var hour = reFormatDate.getHours()
+      var mintues = reFormatDate.getMinutes()
+      return year.toString() + '年' + (month + 1).toString() + '月' + day.toString() + '日' + hour.toString() + ':' + mintues.toString()
+  }
+  function getTime(timestamp) {
+    var curDate = getDate()
+    var msgDate = getDate(timestamp * 1000)
+    if(curDate.toDateString() !== msgDate.toDateString()) {
+      return format(timestamp)
+    } else {
+      var hour = msgDate.getHours()
+      var minutes = msgDate.getMinutes()
+      if(minutes < 10) {
+        minutes = '0' + minutes
+      }
+      return hour + ':' + minutes
+    }
+  }
+  module.exports.format = getTime
+</wxs>
+<view class="chat-time">
+  {{dayjs.format(message.time)}}
+</view>
+<view class="container {{message.flow === 'in' ? '' : 'flex-right'}}">
+  <view class="avatar">
+    <image class="avatar-img" src="{{message.flow === 'in' ? '../../../images/head.png' : userInfo.avatarUrl}}"></image>
+  </view>
+  <view class="message">
+    <view class="nick-name {{message.flow === 'in' ? '' : 'flex-right'}}">{{message.flow === 'in' ? '客服' : userInfo.nickName}}</view>
+    <view class="message-container {{message.flow === 'in' ? '' : 'flex-right'}}">
+      <slot></slot>
+      <view class="status">
+        <loading show="{{message.status === 'unsend'}}" ext-class="status-loading" extClass="status-loading" type="circle" tips="" />
+        <icon wx:if="{{message.status === 'fail'}}" type="warn" size="16" class="status-warn" bindtap="onHandleOpenResend" />
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,48 @@
+/**index.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  /* background-image: radial-gradient(circle, rgba(0, 92, 212, 0.5), #005cd4); */
+  /* background: rgba(237,237,237,1); */
+background-image: linear-gradient(-33deg, #364150 0%, #1A2534 100%);
+}
+
+.name {
+  font-size: 80rpx;
+  color: #fff;
+  text-align: center;
+}
+.btn {
+  margin-top: 36rpx;
+  width: 634rpx;
+  height: 96rpx;
+  line-height: 100rpx;
+  box-shadow: 0 2px 2px 0 rgba(0, 92, 212, 0.14), 0 3px 1px -2px rgba(0, 92, 212, 0.2), 0 1px 5px 0 rgba(0, 92, 212, 0.12);
+  /* background-color: rgba(0,92,212, 0.8); */
+  background-color: rgba(15,175,150, 0.9);
+  color: #fff;
+  font-size: 20px;
+}
+.btn-hover {
+   background-color: rgba(15,175,150, 1);
+}
+.btn-wrapper {
+  width: 100%;
+  height: 500rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+}
+.desc {
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  font-family:PingFangSC-Regular,PingFangSC;
+  font-weight: 400;
+  color: #fff;
+  opacity: 0.7;
+}

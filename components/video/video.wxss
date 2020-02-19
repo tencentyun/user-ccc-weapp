@@ -1,0 +1,169 @@
+/* components/video/video.wxss */
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.webrtc-fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.webrtc-center {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 56.25%;
+  transform: translateY(-50%);
+  /* border: 10px solid red; */
+}
+
+.webrtc-hidden {
+  top: -9999px;
+  left: -9999px;
+  width: 0;
+  height: 0;
+  /* border: 10px solid #000; */
+}
+
+.cover-bottom-view {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  z-index: 9999;
+}
+
+.hangup-container {
+  width: 750rpx;
+  height: 226rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.hangup-circle {
+  width: 130rpx;
+  height: 130rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(229, 69, 69);
+}
+
+.hangup-image-wrapper {
+  width: 68rpx;
+  height: 68rpx;
+}
+
+.hangup-image {
+  width: 100%;
+  height: 100%;
+}
+
+.operation-container {
+  width: 750rpx;
+  height: 114rpx;
+  margin-bottom: 64rpx;
+  margin-top: 82rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.operation-item {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.operation-image-wrapper {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.operation-name {
+  height: 34rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(183, 187, 191, 1);
+  line-height: 34rpx;
+  margin-top: 20rpx;
+}
+
+.operation-imges {
+  width: 100%;
+  height: 100%;
+}
+
+.call-time {
+  height: 46rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 46rpx;
+  text-align: center;
+}
+
+.audio-container {
+  width: 750rpx;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 280rpx;
+}
+
+.audio-image-wrapper {
+  width: 260rpx;
+  height: 260rpx;
+}
+
+.audio-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.audio-name {
+  height: 44rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 44rpx;
+  text-align: center;
+  margin-top: 40rpx;
+}
+
+.zoomout {
+  position: fixed;
+  top: 60rpx;
+  left: 60rpx;
+  z-index: 999;
+}
+
+.zoomout-img {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.audio-call {
+  visibility: hidden;
+}
+
+.audio-avatar {
+  width: 400rpx;
+  height: 400rpx;
+}

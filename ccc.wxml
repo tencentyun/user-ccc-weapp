@@ -1,0 +1,44 @@
+<!--pages/container/container.wxml-->
+<movable-area class="movable-area">
+  <wxs src="./utils/formatTime.wxs" module="dayjs" />
+
+  <movable-view wx:if="{{(videoCall || audioCall) && smallView}}" class="movable-call-view" direction="all" x="{{370}}" y="{{80}}">
+    <view class="movable-call-view-wrapper" bindtap="onHandleZoomOutView">
+      <image class="video-icon" wx:if="{{videoCall}}" src="/images/video-green.png"></image>
+        <image class="video-icon" wx:if="{{audioCall}}" src="/images/call-green.png"></image>
+      <view wx:if="{{callStatus === null}}"></view>
+      <view wx:elif="{{callStatus === 'ready' || callStatus === 'calling'}}">呼叫中</view>
+      <block wx:else>
+        <view>通话中</view>
+        <view>{{dayjs.getTime(callTime)}}</view>
+      </block>
+    </view>
+  </movable-view>
+<!-- IM -->
+  <chat-page
+  id="chat"
+  bind:event="onHandleStartCall"
+  bind:ivr="onHandleIvrEvent"
+  ivrFinish="{{ivrFinish}}"
+  staff="{{staff}}"
+  callStatus="{{callStatus}}"
+/>
+
+<!-- 通话 -->
+  <view style="position: fixed; top: 0;width: 100vw; height: 100vh; display: {{smallView? 'none' : (videoCall || audioCall ? 'block' : 'none')}};">
+    <call
+    class="call-view {{smallView ? 'call-hidden-view' : ''}}"
+    small="{{smallView}}"
+    id="call"
+    type="{{videoCall ? 'video' : 'audio'}}"
+    status="{{callStatus}}"
+    roomID="{{callRoomId}}"
+    userSig="{{callUserSig}}"
+    privateMapKey="{{callPrivateMapKey}}"
+    groupId="{{groupId}}"
+    callTime="{{callTime}}"
+    bind:event="onHandleExitRoomEvent"
+    bind:zoom="onHandleViews"
+  />
+  </view>
+</movable-area>

@@ -1,0 +1,54 @@
+<!--components/chat/functionBar/functionBar.wxml-->
+<view
+  class="bottom"
+  style="margin-bottom: {{keyboardHeight !== 0 ? keyboardHeight * 2 : 0}}rpx">
+  <view class="edit-bar">
+    <editor
+      class="message-text"
+      id="editor"
+      type="text"
+      bindinput="onHandleChangeInputMsg"
+      confirm-hold="{{true}}"
+      hold-keyboard="{{false}}"
+      adjust-position="{{false}}"
+      confirm-type="send"
+      bindconfirm="sendTextMessage"
+      bindfocus="onHangleInputHeight"
+      bindblur="onHandleCancelInputHeight"
+      read-only="{{readOnly}}"
+    />
+    <view class="feature-circle">
+      <view class="emoji-circle" id="emoji" bindtap="onHandleClickBottomCircle">
+        <image wx:if="{{bottomStatus === 'emoji'}}" src="../../../images/keyboard.png"></image>
+        <image wx:else src="../../../images/smile.png"></image>
+      </view>
+      <view wx:if="{{textMessage === ''}}" class="other-circle" id="other" bindtap="onHandleClickBottomCircle">
+        <image src="../../../images/add.png"></image>
+      </view>
+      <view wx:else class="send-circle" catchtouchend="sendTextMessage">发送</view>
+    </view>
+  </view>
+</view>
+<view class="function-bar" wx:if="{{bottomStatus !== ''}}">
+  <view class="emoji" wx:if="{{bottomStatus === 'emoji'}}">
+    <emoji emojiMap="{{emojiMap}}" bind:emoji="onHandleEmoji" />
+  </view>
+  <view class="other" wx:if="{{bottomStatus === 'other'}}">
+    <view class="other-camera" bindtap="onHandleOpenPhoto">
+      <image class="icon icon-camera" mode="aspectFit" src="../../../images/images.png" />
+      <text>照片</text>
+    </view>
+    <view class="other-photo" bindtap="onHandleOpenCamera">
+      <image class="icon icon-camera" mode="aspectFit" src="../../../images/camera.png" />
+      <text>拍摄</text>
+    </view>
+    <view wx:if="{{ivrFinish}}" class="other-audio" bindtap="onHandleAudioCall">
+      <image class="icon icon-camera" mode="aspectFit" src="../../../images/call-default.png" />
+      <text>语音通话</text>
+    </view>
+    <view wx:if="{{ivrFinish}}" class="other-audio" bindtap="onHandleVideoCall">
+      <image class="icon icon-camera" mode="aspectFit" src="../../../images/video-default.png" />
+      <text>视频通话</text>
+    </view>
+  </view>
+</view>

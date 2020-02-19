@@ -1,0 +1,70 @@
+/* components/chatAvatar/chatAvatar.wxss */
+@import '/miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+
+.chat-time {
+  margin-bottom: 48rpx;
+  text-align: center;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(138, 143, 151, 1);
+  line-height: 34rpx;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 0 32rpx;
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.message {
+  flex-grow: 1;
+}
+
+.message-right {
+  flex-direction: row-reverse;
+}
+
+.nick-name {
+  font-size: 24rpx;
+  padding: 0 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(138, 143, 151, 1);
+  line-height: 34rpx;
+}
+
+.flex-right {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.message-container {
+  display: flex;
+  margin-bottom: 48rpx;
+    text-align: left;
+}
+.status {
+  height: 40rpx;
+  position: relative;
+}
+
+.status-loading {
+  height: 140rpx;
+  margin-bottom: -20px;
+}
+
+.status-warn {
+  margin: 36rpx 10rpx;
+}

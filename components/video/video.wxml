@@ -1,0 +1,75 @@
+<!-- 外层 -->
+  <view class="wrapper" wx:hidden="{{!small}}">
+    <webrtc-room
+    id="webrtcroom"
+    template="{{template}}"
+    autoplay="{{autoplay}}"
+    enableCamera="{{enableCamera}}"
+    roomID="{{roomID}}"
+    roomName="{{roomName}}"
+    userID="{{userId}}"
+    roomCreator="{{roomCreator}}"
+    userSig="{{userSig}}"
+    sdkAppID="{{sdkAppId}}"
+    privateMapKey="{{privateMapKey}}"
+    beauty="{{beauty}}"
+    muted="{{muted}}"
+    debug="{{debug}}"
+    bindRoomEvent="onRoomEvent"
+    bindIMEvent="onIMEvent"
+    enableIM="{{enableIM}}"
+    smallView="{{small ? miniSmallView : (status === 'answering' ? answeringSmallView : callingSmallView)}}"
+    playView="{{small ? hiddenPlayView : (status === 'answering' ? answeringPlayView : callingPlayView)}}"
+    minBitrate="{{minBitrate}}"
+    maxBitrate="{{maxBitrate}}"
+    aspect="{{aspect}}"
+    playerBackgroundImg=""
+    >
+    </webrtc-room>
+  </view>
+
+  <wxs src="../../utils/formatTime.wxs" module="dayjs" />
+
+  <cover-view wx:if="{{!small}}" class="cover-bottom-view">
+    <cover-view wx:if="{{type === 'audio'}}" class="audio-container">
+      <cover-view class="audio-image-wrapper">
+        <cover-image class="audio-image" src="../../images/tencentcloud.jpg"></cover-image>
+      </cover-view>
+      <cover-view class="audio-name">腾讯云呼叫中心</cover-view>
+    </cover-view>
+    <cover-view class="call-time">
+      {{status === 'calling' ? '呼叫中' : dayjs.getTime(callTime)}}
+    </cover-view>
+    <cover-view class="operation-container">
+      <!-- 静音 -->
+      <cover-view wx:if="{{status === 'answering'}}" class="operation-item" bindtap="onHandleMuted">
+        <cover-view class="operation-image-wrapper">
+          <cover-image wx:if="{{muted}}" class="operation-image" src="../../images/mute.png"></cover-image>
+          <cover-image wx:else class="operation-image" src="../../images/muted.png"></cover-image>
+        </cover-view>
+        <cover-view class="operation-name">{{muted ? '取消静音' : '静音'}}</cover-view>
+      </cover-view>
+      <cover-view wx:if="{{type === 'video'}}" class="operation-item" bindtap="onHandleSwitchCamera">
+        <cover-view class="operation-image-wrapper">
+          <cover-image wx:if="{{frontCamera}}" class="operation-image" src="../../images/reverse.png"></cover-image>
+          <cover-image wx:else class="operation-image" src="../../images/reverse-selected.png"></cover-image>
+        </cover-view>
+        <cover-view class="operation-name">切换摄像头</cover-view>
+      </cover-view>
+      <cover-view class="operation-item" bindtap="onHandleZoomOut">
+        <cover-view class="operation-image-wrapper">
+          <cover-image wx:if="{{small}}" class="operation-image" src="../../images/zoom-selected.png"></cover-image>
+          <cover-image wx:else class="operation-image" src="../../images/zoom.png"></cover-image>
+        </cover-view>
+        <cover-view class="operation-name">全屏</cover-view>
+      </cover-view>
+    </cover-view>
+      <!-- 挂断 -->
+    <cover-view class="hangup-container">
+      <cover-view class="hangup-circle" bindtap="onHangUp">
+        <cover-view class="hangup-image-wrapper">
+          <cover-image class="hangup-image" src="../../images/hangup.png"></cover-image>
+        </cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>

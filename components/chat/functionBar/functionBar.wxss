@@ -1,0 +1,104 @@
+/* components/chat/functionBar/functionBar.wxss */
+.bottom {
+    flex-shrink: 0;
+    width: 100%;
+    background: rgba(246, 246, 246, 1);
+}
+.edit-bar {
+    height: 104rpx;
+    box-sizing: border-box;
+    padding: 18rpx 14rpx 16rpx 16rpx;
+    border-top: 1px solid rgba(207, 209, 212, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.message-text {
+    width: 550rpx;
+    height: 80rpx;
+    min-height: 80rpx;
+    line-height: 80rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    transition: 0.3s all;
+    display: flex;
+}
+.message-text span {
+    background: red;
+    display: inline-block;
+    padding: 50px;
+}
+.text-img {
+    display: none;
+}
+.feature-circle {
+    box-sizing: border-box;
+    height: 72rpx;
+    padding: 14rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.emoji-circle, .other-circle {
+    position: relative;
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emoji-circle image,
+.other-circle image
+{
+    width: 100%;
+    height: 100%;
+}
+.send-circle {
+    width: 76rpx;
+    height: 40rpx;
+    background: #006EFF;
+    padding: 8rpx 12rpx;
+    font-size: 32rpx;
+    color: #fff;
+    margin-left: 4rpx;
+    border-radius: 4rpx;
+    line-height: 40rpx;
+    text-align: center;
+}
+.other {
+    height: 254rpx;
+    background: rgba(246, 246, 246, 1);
+    padding: 32rpx 48rpx 0;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 12px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: rgba(138, 143, 151, 1);
+    line-height: 17px;
+    border-top: 1rpx solid rgb(207, 209, 212);
+}
+.other > view {
+    width: 156rpx;
+    height: 192rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 26rpx;
+    flex-basis: 25%;
+}
+
+.other text {
+    margin-top: 16rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: rgba(138, 143, 151, 1);
+    line-height: 34rpx;
+}
+.icon-camera {
+  width: 100%
+}
