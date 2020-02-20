@@ -1,0 +1,10 @@
+{
+  "name": "user-ccc-mp",
+  "dependencies": {
+    "cos-wx-sdk-v5": "^0.7.7",
+    "dayjs": "^1.8.16",
+    "md5": "^2.2.1",
+    "tim-wx-sdk": "^2.0.9",
+    "weui-miniprogram": "^0.1.12"
+  }
+}
